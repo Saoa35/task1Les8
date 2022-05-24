@@ -29,6 +29,20 @@ class About extends React.Component {
   }
 }
 
+class Users extends React.Component {
+
+  render() {
+
+    return(
+      <div>
+        <h3>
+          Users Page
+        </h3>
+      </div>
+    )
+  }
+}
+
 
 
 function App() {
