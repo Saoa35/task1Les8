@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 class Home extends React.Component {
 
@@ -49,9 +50,13 @@ class Users extends React.Component {
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-      
-      </BrowserRouter>
+      <Router>
+
+        <Route path='/' component={Home} exact />
+        <Route path='/about' component={About} />
+        <Route path='/users' component={Users} />
+
+      </Router>
     </div>
   );
 }
