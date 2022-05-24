@@ -2,6 +2,7 @@ import './App.css';
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Route } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 
 class Home extends React.Component {
 
@@ -52,9 +53,11 @@ function App() {
     <div className="App">
       <Router>
 
-        <Route path='/' component={Home} exact />
-        <Route path='/about' component={About} />
-        <Route path='/users' component={Users} />
+        <Switch>
+          <Route path='/' component={Home} exact />
+          <Route path='/about' component={About} />
+          <Route path='/users' component={Users} />
+        </Switch>
 
       </Router>
     </div>
