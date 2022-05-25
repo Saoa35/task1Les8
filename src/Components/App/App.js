@@ -3,6 +3,8 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import { Switch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class Home extends React.Component {
 
@@ -20,6 +22,16 @@ class Home extends React.Component {
 
 class About extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.handleBackRoute = this.handleBackRoute.bind(this)
+  }
+
+  handleBackRoute() {
+    const history = this.props.history;
+    history.goBack();
+  } 
+
   render() {
 
     return(
@@ -27,6 +39,9 @@ class About extends React.Component {
         <h3>
           About Page
         </h3>
+        <button onClick={this.handleBackRoute}>
+          Go Back
+        </button>
       </div>
     )
   }
@@ -47,6 +62,31 @@ class Users extends React.Component {
 }
 
 
+const Navigate = () => {
+  return(
+    <ul>
+      <li>
+        <Link to="/" className="nav-link">
+          Home
+        </Link>
+      </li>
+
+      <li>
+        <NavLink to="/about" className="nav-link">
+          About
+        </NavLink>
+      </li>
+
+      <li>
+        <NavLink to="/users" className="nav-link">
+          Users
+        </NavLink>
+      </li>
+    </ul>
+  )
+}
+
+
 
 function App() {
   return (
@@ -57,6 +97,8 @@ function App() {
       </h1>
 
       <Router>
+
+      <Navigate />
 
         <Switch>
           <Route path='/' component={Home} exact />
