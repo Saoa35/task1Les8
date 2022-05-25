@@ -70,6 +70,7 @@ class Users extends React.Component {
   } 
 
   render() {
+    console.log(this.props)
 
     return(
       <div>
@@ -84,9 +85,35 @@ class Users extends React.Component {
   }
 }
 
+class UsersId extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.handleForwardRoute = this.handleForwardRoute.bind(this)
+  }
+
+  handleForwardRoute() {
+    const history = this.props.history;
+    history.goForward();
+  } 
+
+  render() {
+    
+    console.log(this.props)
+
+    return(
+      <div>
+        <h3>
+          Users ID Page
+        </h3>
+      </div>
+    )
+  }
+}
+
 
 const Navigate = () => {
-  return(
+  return (
     <ul>
       <li>
         <Link to="/" className="nav-link">
@@ -124,9 +151,10 @@ function App() {
       <Navigate />
 
         <Switch>
-          <Route path='/' component={Home} exact />
-          <Route path='/about' component={About} />
-          <Route path='/users' component={Users} />
+          <Route path="/" component={Home} exact />
+          <Route path="/about" component={About} />
+          <Route path="/users" component={Users} />
+          <Route path="/users/:id" component={UsersId} />
         </Switch>
 
       </Router>
