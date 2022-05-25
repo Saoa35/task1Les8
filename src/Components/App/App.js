@@ -1,12 +1,19 @@
 import './App.css';
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { Route } from 'react-router-dom';
-import { Switch } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link, NavLink } from 'react-router-dom';
 
 class Home extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.handlePushRoute = this.handlePushRoute.bind(this)
+  }
+
+  handlePushRoute() {
+    const history = this.props.history;
+    history.push('/about');
+  } 
+
 
   render() {
 
@@ -15,6 +22,9 @@ class Home extends React.Component {
         <h3>
           Home Page
         </h3>
+        <button onClick={this.handlePushRoute}>
+          Go to About
+        </button>
       </div>
     )
   }
@@ -49,6 +59,16 @@ class About extends React.Component {
 
 class Users extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.handleForwardRoute = this.handleForwardRoute.bind(this)
+  }
+
+  handleForwardRoute() {
+    const history = this.props.history;
+    history.goForward();
+  } 
+
   render() {
 
     return(
@@ -56,6 +76,9 @@ class Users extends React.Component {
         <h3>
           Users Page
         </h3>
+        <button onClick={this.handleForwardRoute}>
+          Go Forward
+        </button>
       </div>
     )
   }
