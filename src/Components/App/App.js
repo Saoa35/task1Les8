@@ -116,9 +116,9 @@ const Navigate = () => {
   return (
     <ul>
       <li>
-        <Link to="/" className="nav-link">
+        <NavLink to="/" className="nav-link">
           Home
-        </Link>
+        </NavLink>
       </li>
 
       <li>
